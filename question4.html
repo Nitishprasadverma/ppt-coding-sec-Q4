@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Responsive Navbar</title>
+  <style>
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #333;
+      color: #fff;
+      padding: 10px;
+    }
+
+    .navbar .logo {
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    .navbar .menu {
+      display: flex;
+      align-items: center;
+    }
+
+    .navbar .menu-item {
+      margin-left: 15px;
+    }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+    }
+
+    .hamburger span {
+      width: 25px;
+      height: 3px;
+      background-color: #fff;
+      margin-bottom: 4px;
+    }
+
+    @media (max-width: 768px) {
+      .navbar .menu {
+        display: none;
+      }
+
+      .navbar .hamburger {
+        display: flex;
+      }
+
+      .navbar .hamburger-menu {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background-color: #333;
+        padding: 10px;
+      }
+
+      .navbar .hamburger-menu.show {
+        display: block;
+      }
+
+      .navbar .hamburger-menu .menu-item {
+        margin-bottom: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="logo">Logo</div>
+    <div class="menu">
+      <a href="#" class="menu-item">Home</a>
+      <a href="#" class="menu-item">About</a>
+      <a href="#" class="menu-item">Services</a>
+      <a href="#" class="menu-item">Contact</a>
+    </div>
+    <div class="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <div class="hamburger-menu">
+      <a href="#" class="menu-item">Home</a>
+      <a href="#" class="menu-item">About</a>
+      <a href="#" class="menu-item">Services</a>
+      <a href="#" class="menu-item">Contact</a>
+    </div>
+  </nav>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      var hamburger = document.querySelector(".hamburger");
+      var hamburgerMenu = document.querySelector(".hamburger-menu");
+
+      hamburger.addEventListener("click", function() {
+        hamburgerMenu.classList.toggle("show");
+      });
+    });
+  </script>
+</body>
+</html>
